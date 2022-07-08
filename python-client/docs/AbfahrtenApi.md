@@ -35,7 +35,7 @@ with vag.ApiClient() as api_client:
     api_instance = abfahrten_api.AbfahrtenApi(api_client)
     netvu = "netvu_example" # str | Netz des Verkehrsunternehmen, aktuell \"VAG\" oder \"VGN\"
     haltid = "haltid_example" # str | Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG
-    product = "product_example" # str | Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram (optional)
+    product = "product_example" # str | Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram (optional)
     timespan = 1 # int | Zeitfenster für die Abfrage in Minuten (?timespan=10) (optional)
     timedelay = 1 # int | Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5) (optional)
     limitcount = 1 # int | Maximale Anzahl der zurückgelieferten Abfahrten (optional)
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **netvu** | **str**| Netz des Verkehrsunternehmen, aktuell \&quot;VAG\&quot; oder \&quot;VGN\&quot; |
  **haltid** | **str**| Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG |
- **product** | **str**| Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product&#x3D;Bus,Tram | [optional]
+ **product** | **str**| Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product&#x3D;Bus,Tram | [optional]
  **timespan** | **int**| Zeitfenster für die Abfrage in Minuten (?timespan&#x3D;10) | [optional]
  **timedelay** | **int**| Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay&#x3D;5) | [optional]
  **limitcount** | **int**| Maximale Anzahl der zurückgelieferten Abfahrten | [optional]
@@ -121,7 +121,7 @@ with vag.ApiClient() as api_client:
     netvu = "netvu_example" # str | Netz des Verkehrsunternehmen, aktuell \"VAG\" oder \"VGN\"
     haltid = "haltid_example" # str | Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG
     line = "line_example" # str | Linienkürzel der VAG
-    product = "product_example" # str | Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram (optional)
+    product = "product_example" # str | Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram (optional)
     timespan = 1 # int | Zeitfenster für die Abfrage in Minuten (?timespan=10) (optional)
     timedelay = 1 # int | Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5) (optional)
     limitcount = 1 # int | Maximale Anzahl der zurückgelieferten Abfahrten (optional)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
  **netvu** | **str**| Netz des Verkehrsunternehmen, aktuell \&quot;VAG\&quot; oder \&quot;VGN\&quot; |
  **haltid** | **str**| Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG |
  **line** | **str**| Linienkürzel der VAG |
- **product** | **str**| Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product&#x3D;Bus,Tram | [optional]
+ **product** | **str**| Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product&#x3D;Bus,Tram | [optional]
  **timespan** | **int**| Zeitfenster für die Abfrage in Minuten (?timespan&#x3D;10) | [optional]
  **timedelay** | **int**| Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay&#x3D;5) | [optional]
  **limitcount** | **int**| Maximale Anzahl der zurückgelieferten Abfahrten | [optional]
