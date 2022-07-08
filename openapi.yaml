@@ -1,0 +1,483 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: VAG API
+  description: Web-API für Echtzeitinformationen der VAG Nürnberg
+host: start.vag.de
+basePath: /dm
+schemes:
+  - https
+paths:
+  /api/v1/abfahrten/{netvu}/{haltid}:
+    get:
+      tags:
+        - Abfahrten
+      summary: Liefert die Abfahrten zu einer bestimmten Haltestelle
+      operationId: Abfahrten_Get1
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: netvu
+          in: path
+          description: Netz des Verkehrsunternehmen, aktuell "VAG" oder "VGN"
+          required: true
+          type: string
+        - name: haltid
+          in: path
+          description: Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG
+          required: true
+          type: string
+        - name: product
+          in: query
+          description: 'Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram'
+          required: false
+          type: string
+        - name: timespan
+          in: query
+          description: Zeitfenster für die Abfrage in Minuten (?timespan=10)
+          required: false
+          type: integer
+          format: int32
+        - name: timedelay
+          in: query
+          description: Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5)
+          required: false
+          type: integer
+          format: int32
+        - name: limitcount
+          in: query
+          description: Maximale Anzahl der zurückgelieferten Abfahrten
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/AbfahrtenAPIResponse'
+        '404':
+          description: NotFound
+  /api/v1/abfahrten/{netvu}/{haltid}/{line}:
+    get:
+      tags:
+        - Abfahrten
+      summary: Liefert die Abfahrten zu einer bestimmten Haltestelle
+      operationId: Abfahrten_Get2
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: netvu
+          in: path
+          description: Netz des Verkehrsunternehmen, aktuell "VAG" oder "VGN"
+          required: true
+          type: string
+        - name: haltid
+          in: path
+          description: Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG
+          required: true
+          type: string
+        - name: line
+          in: path
+          description: Linienkürzel der VAG
+          required: true
+          type: string
+        - name: product
+          in: query
+          description: 'Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram'
+          required: false
+          type: string
+        - name: timespan
+          in: query
+          description: Zeitfenster für die Abfrage in Minuten (?timespan=10)
+          required: false
+          type: integer
+          format: int32
+        - name: timedelay
+          in: query
+          description: Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5)
+          required: false
+          type: integer
+          format: int32
+        - name: limitcount
+          in: query
+          description: Maximale Anzahl der zurückgelieferten Abfahrten
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/AbfahrtenAPIResponse'
+        '404':
+          description: NotFound
+  /api/v1/fahrten/{betriebszweig}:
+    get:
+      tags:
+        - Fahrten
+      summary: Liefert alle laufenden und startenden Fahrten zu dem angegebenen Betriebszweig innerhalb des angegebenen Zeitfenster.
+      operationId: Fahrten_Get
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: betriebszweig
+          in: path
+          description: 'Betriebszweig der VAG: Bus|Tram|UBahn'
+          required: true
+          type: string
+        - name: timespan
+          in: query
+          description: Zeitfenster für die Abfrage in Minuten (Default 60 Minuten)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/FahrtenAPIResponse'
+  /api/v1/fahrten/{betriebszweig}/{fahrtnummer}:
+    get:
+      tags:
+        - Fahrten
+      summary: Liefert die Fahrt des angegebenen Betriebszweig mit der Fahrtnummer und dem aktuellen Betriebstag
+      operationId: Fahrten_GetFahrt1
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: betriebszweig
+          in: path
+          description: 'Betriebszweig der VAG: Bus|Tram|UBahn'
+          required: true
+          type: string
+        - name: fahrtnummer
+          in: path
+          description: Fahrtnummer für die Anfrage
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/FahrtenAPIResponse'
+        '404':
+          description: NotFound
+  /api/v1/fahrten/{betriebszweig}/{betriebstag}/{fahrtnummer}:
+    get:
+      tags:
+        - Fahrten
+      summary: Liefert die Fahrt des angegebenen Betriebszweig mit der Fahrtnummer und dem angegebenen Betriebstag
+      operationId: Fahrten_GetFahrt2
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: betriebszweig
+          in: path
+          description: 'Betriebszweig der VAG: Bus|Tram|UBahn'
+          required: true
+          type: string
+        - name: betriebstag
+          in: path
+          description: Betriebstagsdatum für die Anfrag
+          required: true
+          type: string
+          format: date-time
+        - name: fahrtnummer
+          in: path
+          description: Fahrtnummer für die Anfrage
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/FahrtenAPIResponse'
+        '404':
+          description: NotFound
+  /api/v1/haltestellen/{netvu}:
+    get:
+      tags:
+        - Haltestellen
+      summary: Liefert die Liste mit den Haltestellen zu dem angegebenen Haltestellenname (Optional)
+      operationId: Haltestellen_GetByName
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: netvu
+          in: path
+          description: Netz des Verkehrsunternehmen, aktuell "VAG" oder "VGN"
+          required: true
+          type: string
+        - name: name
+          in: query
+          description: Name der Haltestelle (like)
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/HaltestellenAPIResponse'
+  /api/v1/haltestellen/{netvu}/location:
+    get:
+      tags:
+        - Haltestellen
+      summary: Liefert die Liste mit den Haltestellen zu der Umkreissuche
+      operationId: Haltestellen_GetByLocation
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: netvu
+          in: path
+          description: Netz des Verkehrsunternehmen, aktuell "VAG" oder "VGN"
+          required: true
+          type: string
+        - name: lon
+          in: query
+          description: Longitude für die Umkreissuche in WGS 84 Format in Grad
+          required: true
+          type: number
+          format: float
+        - name: lat
+          in: query
+          description: Latitude für die Umkreissuche in WGS 84 Format in Grad
+          required: true
+          type: number
+          format: float
+        - name: radius
+          in: query
+          description: Radius für die Umkreissuche. Defaultwert = 1000 Meter.
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/HaltestellenAPIResponse'
+definitions:
+  AbfahrtenAPIResponse:
+    type: object
+    properties:
+      Metadata:
+        $ref: '#/definitions/Metadata'
+      Haltestellenname:
+        type: string
+      VAGKennung:
+        type: string
+      VGNKennung:
+        format: int32
+        type: integer
+      Abfahrten:
+        type: array
+        items:
+          $ref: '#/definitions/AbfahrtDto'
+      Sonderinformationen:
+        type: array
+        items:
+          type: string
+  Metadata:
+    type: object
+    properties:
+      Version:
+        type: string
+      Timestamp:
+        type: string
+  AbfahrtDto:
+    description: Datenklasse für die Abfahrtsdaten einer Fahrt an einem Haltepunkt
+    type: object
+    properties:
+      Linienname:
+        type: string
+      Haltepunkt:
+        type: string
+      Richtung:
+        type: string
+      Richtungstext:
+        type: string
+      AnkunftszeitSoll:
+        type: string
+      AnkunftszeitIst:
+        type: string
+      AbfahrtszeitSoll:
+        type: string
+      AbfahrtszeitIst:
+        type: string
+      Produkt:
+        type: string
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+      Fahrtnummer:
+        format: int32
+        type: integer
+      Fahrtartnummer:
+        format: int32
+        type: integer
+      Fahrzeugnummer:
+        type: string
+      Prognose:
+        type: boolean
+      HaltesteigText:
+        type: string
+      AbfahrtszeitenAusblenden:
+        type: boolean
+  FahrtenAPIResponse:
+    description: Antwortklasse für die Fahrten-API Zugriffe
+    type: object
+    properties:
+      Metadata:
+        $ref: '#/definitions/Metadata'
+      Linienname:
+        type: string
+      Richtung:
+        type: string
+      Richtungstext:
+        type: string
+      Fahrtnummer:
+        format: int32
+        type: integer
+      Betriebstag:
+        type: string
+      Produkt:
+        type: string
+      FaelltAus:
+        type: boolean
+      Zusatzfahrt:
+        type: boolean
+      Fahrzeugnummer:
+        type: string
+      Fahrtverlauf:
+        type: array
+        items:
+          $ref: '#/definitions/FahrwegHaltepositionDto'
+      Fahrten:
+        type: array
+        items:
+          $ref: '#/definitions/FahrtDto'
+  FahrwegHaltepositionDto:
+    description: Halteposition zu einer Fahrt
+    type: object
+    properties:
+      Haltestellenname:
+        type: string
+      VAGKennung:
+        type: string
+      VGNKennung:
+        format: int32
+        type: integer
+      Haltepunkt:
+        type: string
+      AnkunftszeitSoll:
+        type: string
+      AnkunftszeitIst:
+        type: string
+      AbfahrtszeitSoll:
+        type: string
+      AbfahrtszeitIst:
+        type: string
+      Richtungstext:
+        type: string
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+      Durchfahrt:
+        type: boolean
+      Einsteigeverbot:
+        type: boolean
+      Aussteigeverbot:
+        type: boolean
+      Zusatzhalt:
+        type: boolean
+  FahrtDto:
+    description: Antwortobjekt für eine Fahrt in der Fahrtenliste
+    type: object
+    properties:
+      Fahrtnummer:
+        format: int32
+        type: integer
+      Linienname:
+        type: string
+      Richtung:
+        type: string
+      Betriebstag:
+        type: string
+      Startzeit:
+        type: string
+      Endzeit:
+        type: string
+      StartHaltID:
+        type: string
+      EndHaltID:
+        type: string
+      FaelltAus:
+        type: boolean
+      Zusatzfahrt:
+        type: boolean
+      Fahrzeugnummer:
+        type: string
+  HaltestellenAPIResponse:
+    description: Antwortklasse für die Haltestellen-API Zugriffe
+    type: object
+    properties:
+      Metadata:
+        $ref: '#/definitions/Metadata'
+      Haltestellen:
+        type: array
+        items:
+          $ref: '#/definitions/HaltestelleDto'
+  HaltestelleDto:
+    description: Datenklasse zur Haltestelle Antwort
+    type: object
+    properties:
+      Haltestellenname:
+        type: string
+      VAGKennung:
+        type: string
+      VGNKennung:
+        format: int32
+        type: integer
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+      Produkte:
+        type: string
