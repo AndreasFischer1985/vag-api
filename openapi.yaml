@@ -33,7 +33,7 @@ paths:
           type: string
         - name: product
           in: query
-          description: 'Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram'
+          description: 'Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram'
           required: false
           type: string
         - name: timespan
@@ -91,7 +91,7 @@ paths:
           type: string
         - name: product
           in: query
-          description: 'Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram'
+          description: 'Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram'
           required: false
           type: string
         - name: timespan
