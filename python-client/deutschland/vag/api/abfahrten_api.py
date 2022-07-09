@@ -189,7 +189,7 @@ class AbfahrtenApi(object):
             haltid (str): Haltestellenkennung je nach NetVU - VGN-Kennung oder die HaltID der VAG
 
         Keyword Args:
-            product (str): Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram. [optional]
+            product (str): Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram. [optional]
             timespan (int): Zeitfenster für die Abfrage in Minuten (?timespan=10). [optional]
             timedelay (int): Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5). [optional]
             limitcount (int): Maximale Anzahl der zurückgelieferten Abfahrten. [optional]
@@ -258,7 +258,7 @@ class AbfahrtenApi(object):
             line (str): Linienkürzel der VAG
 
         Keyword Args:
-            product (str): Betriebszweig der VAG Bus, Tram, UBahn. Querystring: product=Bus,Tram. [optional]
+            product (str): Betriebszweig der VAG Bus, Tram, UBahn, SBahn, RBahn. Querystring: product=Bus,Tram. [optional]
             timespan (int): Zeitfenster für die Abfrage in Minuten (?timespan=10). [optional]
             timedelay (int): Zeitliche Verschiebung für die Anfrage in Minuten (?timedelay=5). [optional]
             limitcount (int): Maximale Anzahl der zurückgelieferten Abfahrten. [optional]

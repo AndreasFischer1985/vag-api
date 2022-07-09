@@ -481,3 +481,7 @@ definitions:
         type: number
       Produkte:
         type: string
+   
+externalDocs:
+  description: "Weiterführende Dokumentation"
+  url: "https://github.com/bundesAPI/vag-api"
