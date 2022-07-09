@@ -2,6 +2,7 @@
 
 [OpenAPI-Dokumentation](https://bundesapi.github.io/vag-api/) der API zu [start.vag](https://start.vag.de/desktop/) - dem Verkehrs-Aktiengesellschaft (VAG) Abfahrsmonitor mit Echtzeitprognose. Die API gibt Zugriff auf alle Haltestellen, Fahrten und Abfahrten im Gebiet des Verkehrsbund Großraum Nürnberg (VGN). 
 
+Eine weitere Inhalte und Informationen, sowie eine Schnittstellenbeschreibung durch die VAG findet sich auf opendata.vag.de bzw. [hier](https://opendata.vag.de/dataset/api-echtzeitauskunft) unter [Creative CommonsAttribution 4.0 Int](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
 
 ## Abfahrt-Informationen
 
