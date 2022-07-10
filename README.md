@@ -4,7 +4,7 @@
 
 Eine Schnittstellenbeschreibung durch die VAG findet sich auf [opendata.vag.de](https://opendata.vag.de) bzw. [hier](https://opendata.vag.de/dataset/api-echtzeitauskunft) unter [Creative CommonsAttribution 4.0 Int](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
 
-## Abfahrt-Informationen
+## Informationen zu Haltestellen, Abfahrten & Fahrten
 
 Informationen zu Haltestellen, aktuellen Abfahrten und Fahrten (vgl. Angebote wie https://www.vag.de/#abfahrt oder https://start.vag.de/desktop/).
 
