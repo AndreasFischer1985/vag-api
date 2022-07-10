@@ -4,9 +4,9 @@
 
 Eine Schnittstellenbeschreibung durch die VAG findet sich auf [opendata.vag.de](https://opendata.vag.de) bzw. [hier](https://opendata.vag.de/dataset/api-echtzeitauskunft) unter [Creative CommonsAttribution 4.0 Int](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
 
-## Abfahrt-Informationen
+## Informationen zu Haltestellen, Abfahrten & Fahrten
 
-Informationen zu Haltestellen, aktuellen Abfahrten und Fahrten (vgl. https://www.vag.de/#abfahrt).
+Informationen zu Haltestellen, aktuellen Abfahrten und Fahrten (vgl. Angebote wie https://www.vag.de/#abfahrt oder https://start.vag.de/desktop/).
 
 ### Beispiel
 ```bash
@@ -18,7 +18,7 @@ fahrtenBus=$(curl https://start.vag.de/dm/api/v1/fahrten.json/bus)
 
 ## Fahrplan-Informationen
 
-Weitere Informationen zu Verbindungen zwischen zwei Haltestellen (vgl. https://www.vag.de/#fahrplan).
+Weitere Informationen zu Verbindungen zwischen zwei Haltestellen (vgl. Angebote wie https://www.vag.de/#fahrplan).
 
 ### Beispiel
 ```bash
