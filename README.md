@@ -1,8 +1,12 @@
 # VAG-API
 
-[OpenAPI-Dokumentation](https://bundesapi.github.io/vag-api/) der API zu [start.vag](https://start.vag.de/desktop/) - dem Verkehrs-Aktiengesellschaft (VAG) Abfahrsmonitor mit Echtzeitprognose. Die API gibt Zugriff auf alle Haltestellen, Fahrten und Abfahrten im Gebiet des Verkehrsbund Großraum Nürnberg (VGN). 
+[OpenAPI-Dokumentation](https://bundesapi.github.io/vag-api/) der API zu [start.vag](https://start.vag.de/desktop/) - dem Verkehrs-Aktiengesellschaft (VAG) Abfahrsmonitor mit Echtzeitprognose. Die API gibt Zugriff auf alle Haltestellen, Fahrten und Abfahrten im Gebiet des Verkehrsbund Großraum Nürnberg (VGN). Eine Schnittstellenbeschreibung durch die VAG findet sich auf [opendata.vag.de](https://opendata.vag.de) bzw. [hier](https://opendata.vag.de/dataset/api-echtzeitauskunft) unter [Creative CommonsAttribution 4.0 Int](https://creativecommons.org/licenses/by/4.0/) veröffentlicht. 
 
-Eine Schnittstellenbeschreibung durch die VAG findet sich auf [opendata.vag.de](https://opendata.vag.de) bzw. [hier](https://opendata.vag.de/dataset/api-echtzeitauskunft) unter [Creative CommonsAttribution 4.0 Int](https://creativecommons.org/licenses/by/4.0/) veröffentlicht.
+Eine Übersicht über den VGN Gesamtraum findet sich unter vgn.de:
+
+<a href="https://www.vgn.de/media/schienennetz-gesamtraum-vgn.pdf">
+<img src="https://github.com/AndreasFischer1985/vag-api/blob/main/VGN%20Schienennetz%20Gesamtraum.png" alt="VGN Schienennetz Gesamtraum" style="width:600px;"/>
+</a>
 
 ## Informationen zu Haltestellen, Abfahrten & Fahrten
 
