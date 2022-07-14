@@ -4,7 +4,7 @@
 
 Eine Übersicht über den VGN Gesamtraum findet sich unter vgn.de:
 
-<a href="https://www.vgn.de/media/schienennetz-gesamtraum-vgn.pdf">
+<a href="https://www.vgn.de/media/schienennetz-gesamtraum-vgn.pdf" target="_blank">
 <img src="https://github.com/AndreasFischer1985/vag-api/blob/main/VGN%20Schienennetz%20Gesamtraum.png" alt="VGN Schienennetz Gesamtraum" style="width:600px;"/>
 </a>
 
