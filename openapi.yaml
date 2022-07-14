@@ -58,7 +58,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -73,7 +73,7 @@ paths:
             text/xml:
               schema:
                 $ref: '#/components/schemas/AbfahrtenAPIResponse'
-        404:
+        '404':
           description: NotFound
           content: {}
   /api/v1/abfahrten/{netvu}/{haltid}/{line}:
@@ -127,7 +127,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -142,7 +142,7 @@ paths:
             text/xml:
               schema:
                 $ref: '#/components/schemas/AbfahrtenAPIResponse'
-        404:
+        '404':
           description: NotFound
           content: {}
   /api/v1/fahrten/{betriebszweig}:
@@ -166,7 +166,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -203,7 +203,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -218,7 +218,7 @@ paths:
             text/xml:
               schema:
                 $ref: '#/components/schemas/FahrtenAPIResponse'
-        404:
+        '404':
           description: NotFound
           content: {}
   /api/v1/fahrten/{betriebszweig}/{betriebstag}/{fahrtnummer}:
@@ -250,7 +250,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -265,7 +265,7 @@ paths:
             text/xml:
               schema:
                 $ref: '#/components/schemas/FahrtenAPIResponse'
-        404:
+        '404':
           description: NotFound
           content: {}
   /api/v1/haltestellen/{netvu}:
@@ -289,7 +289,7 @@ paths:
         schema:
           type: string
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
@@ -338,7 +338,7 @@ paths:
           type: integer
           format: int32
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json:
